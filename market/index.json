@@ -43,9 +43,11 @@
       "versions": [
         {
           "version": "0.2.0",
-          "publishTimestamp": 1794933886,
+          "publishTimestamp": 1794934545,
           "source": {
-            "type": "npm"
+            "type": "git",
+            "url": "https://github.com/DjTaNg-404/dsh-gloss",
+            "commit": "b68a4612d55f122ec58cc3c090704f4331922fa6"
           },
           "engines": {
             "dsh": ">=0.2.2-alpha.3 <0.3.0"
