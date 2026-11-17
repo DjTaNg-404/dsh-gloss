@@ -1,0 +1,65 @@
+{
+  "name": "dsh-gloss",
+  "version": "0.2.0",
+  "description": "Ask about selected text in a throwaway side conversation for DeepSeek Harness",
+  "type": "module",
+  "license": "MIT",
+  "author": "DjTaNg-404",
+  "homepage": "https://github.com/DjTaNg-404/dsh-gloss#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DjTaNg-404/dsh-gloss.git"
+  },
+  "bugs": {
+    "url": "https://github.com/DjTaNg-404/dsh-gloss/issues"
+  },
+  "keywords": [
+    "deepseek-harness",
+    "dsh",
+    "dsh-plugin",
+    "selection",
+    "side-chat",
+    "fork",
+    "quick-ask",
+    "gloss"
+  ],
+  "engines": {
+    "node": ">=24.9",
+    "dsh": ">=0.2.2-alpha.3 <0.3.0"
+  },
+  "scripts": {
+    "test": "node --test test/logic.test.mjs test/manifest.test.mjs",
+    "check": "node --check client.js && node --check scripts/make-market-index.mjs",
+    "market:sync": "node scripts/make-market-index.mjs",
+    "prepublishOnly": "npm test"
+  },
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "README.md",
+    "README.zh.md",
+    "LICENSE",
+    "COMPATIBILITY.md",
+    "locale/*.json",
+    "icon.svg"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-conversation",
+        "@deepseek-ai/dsh-client-ui-chat"
+      ]
+    }
+  }
+}

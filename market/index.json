@@ -1,0 +1,57 @@
+{
+  "format": 1,
+  "title": {
+    "en": "Gloss",
+    "zh": "Gloss · 追问"
+  },
+  "description": {
+    "en": "Ask about selected text in a throwaway side conversation that never writes back to the main conversation.",
+    "zh": "在对话里划选一段文字，弹出一次性的追问小窗；问答不会写回主线。"
+  },
+  "plugins": [
+    {
+      "name": "dsh-gloss",
+      "title": {
+        "en": "Gloss",
+        "zh": "Gloss · 追问"
+      },
+      "description": {
+        "en": "Ask about selected text in a throwaway side conversation that never writes back to the main conversation.",
+        "zh": "在对话里划选一段文字，弹出一次性的追问小窗；问答不会写回主线。"
+      },
+      "icon": "icon.svg",
+      "author": "DjTaNg-404",
+      "homepage": "https://github.com/DjTaNg-404/dsh-gloss#readme",
+      "repository": {
+        "url": "https://github.com/DjTaNg-404/dsh-gloss"
+      },
+      "metadata": {
+        "keywords": [
+          "deepseek-harness",
+          "dsh",
+          "dsh-plugin",
+          "selection",
+          "side-chat",
+          "fork",
+          "quick-ask",
+          "gloss"
+        ]
+      },
+      "dist-tags": {
+        "latest": "0.2.0"
+      },
+      "versions": [
+        {
+          "version": "0.2.0",
+          "publishTimestamp": 1794933886,
+          "source": {
+            "type": "npm"
+          },
+          "engines": {
+            "dsh": ">=0.2.2-alpha.3 <0.3.0"
+          }
+        }
+      ]
+    }
+  ]
+}
