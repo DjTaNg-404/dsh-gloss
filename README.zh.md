@@ -20,7 +20,7 @@
 
 实验性。针对 DeepSeek Harness `0.2.2-alpha.3` 测试。Gloss 用到了一些 DSH 的客户端 API 和私有 DOM 属性，DSH 升级时可能变化，见 [COMPATIBILITY.md](COMPATIBILITY.md)。
 
-尚未发布到 npm 或插件索引；目前可以直接从本仓库安装。
+现在可以直接从 GitHub 安装；market index 指向固定的 Git commit，不需要 npm 账号；npm 发布暂缓。
 
 ## 特性
 
@@ -32,20 +32,20 @@
 
 ## 安装
 
-### 从本仓库
+### 从 GitHub
 
 ```sh
 git clone https://github.com/DjTaNg-404/dsh-gloss.git
 dsh plugin --profile <profile> add /absolute/path/to/dsh-gloss
 ```
 
-也可以在 GUI 里：**Plugins → 安装 → 绝对本地目录**，指向克隆下来的目录。装完重启一次 DSH，确认 bundle 是持久的。
-
-### 从 npm（首次发布之后）
+也可以直接装 Git 源：
 
 ```sh
-dsh plugin --profile <profile> add dsh-gloss
+dsh plugin --profile <profile> add "git+https://github.com/DjTaNg-404/dsh-gloss.git"
 ```
+
+或者在 GUI 里：**Plugins → 安装 → 绝对本地目录**，指向克隆下来的目录。装完重启一次 DSH，确认 bundle 是持久的。
 
 ### 从插件索引（索引托管之后）
 
@@ -54,6 +54,8 @@ dsh plugin --profile <profile> add dsh-gloss
 ```
 https://djtang-404.github.io/dsh-gloss/market/index.json
 ```
+
+索引安装的是固定的 Git commit，不经过 npm。需要先给仓库开 GitHub Pages（Settings → Pages → `main` / root），这个 URL 才能访问。
 
 ## 使用
 
@@ -107,7 +109,7 @@ Gloss 依赖的私有 DOM 属性和客户端 API 列在 [COMPATIBILITY.md](COMPA
 ```sh
 npm test              # 纯逻辑 + fork 生命周期回归
 npm run check         # node --check client.js + market 脚本
-npm run market:sync   # npm 发布后重新生成 market/index.json
+npm run market:sync   # 提交后重新生成 Git 源的 market/index.json
 ```
 
 目录：

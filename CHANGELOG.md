@@ -11,4 +11,4 @@ First public release, renamed from the local `quick-ask` prototype to **Gloss**.
 - Accessibility: dialog role and label, focus containment, live log region, labelled input, focus-visible outlines.
 - Drag position is local UI state; settled answers are memoized so streaming and dragging stay cheap.
 - Auto-follow only while the reader is at the bottom.
-- MIT license, regression tests, compatibility notes, and a format-1 market index.
+- MIT license, regression tests, compatibility notes, and a format-1 market index pinned to a Git commit.

@@ -10,13 +10,19 @@
 npm run market:sync
 ```
 
-The script reads `package.json` (name, version, repository, homepage, author, keywords, `engines.dsh`) and the locale `meta` fields, then fills `publishTimestamp` from the npm registry publish time of the current version. Before the first publish (or without registry access) it falls back to the current time with a warning; pass `--timestamp=<unix seconds>` to override:
+The default entry is a **Git source pinned to HEAD**. The script reads `package.json` (name, version, repository, homepage, author, keywords, `engines.dsh`) and the locale `meta` fields, requires a clean working tree, and records the commit id plus its committer time as `publishTimestamp`.
+
+After a code change: commit it, run `npm run market:sync`, then commit `market/index.json` and `market/icon.svg`. The index therefore pins the commit before the index commit, which is expected.
+
+Useful flags:
 
 ```sh
-npm run market:sync -- --timestamp=1763424000
+npm run market:sync -- --allow-dirty          # pin HEAD despite uncommitted changes
+npm run market:sync -- --source=npm           # registry entry instead
+npm run market:sync -- --timestamp=1763424000 # override the recorded time
 ```
 
-After publishing a new version, run it again and commit both files.
+For `--source=npm`, `publishTimestamp` comes from the registry publish time of the current version; before the first publish it falls back to the current time with a warning.
 
 ## Host it
 
@@ -24,7 +30,7 @@ The index URL must be a canonical `http(s)` URL without credentials or a fragmen
 
 1. Push the repository.
 2. **Settings → Pages → Deploy from a branch → `main` / root**.
-3. The index is then at `https://<user>.github.io/dsh-gloss/market/index.json`, with the icon next to it.
+3. The index is then at `https://djtang-404.github.io/dsh-gloss/market/index.json`, with the icon next to it.
 
 Any static HTTPS host works, as long as `index.json` and `icon.svg` stay in the same directory.
 

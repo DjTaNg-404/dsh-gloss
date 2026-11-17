@@ -51,4 +51,10 @@ test('the committed market index matches the package', () => {
   assert.equal(plugin?.versions?.[0]?.version, pkg.version)
   assert.equal(plugin?.versions?.[0]?.engines?.dsh, pkg.engines.dsh)
   assert.equal(plugin?.icon, 'icon.svg')
+  const source = plugin?.versions?.[0]?.source
+  assert.ok(source?.type === 'git' || source?.type === 'npm', `unexpected market source: ${source?.type}`)
+  if (source.type === 'git') {
+    assert.match(source.commit, /^[0-9a-f]{40}$/)
+    assert.match(source.url, /^https:\/\/github\.com\//)
+  }
 })

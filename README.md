@@ -20,7 +20,7 @@ main conversation                         Gloss dialog
 
 Experimental. Tested against DeepSeek Harness `0.2.2-alpha.3`. Gloss uses a few Client APIs and private DOM attributes that may change between DSH releases; see [COMPATIBILITY.md](COMPATIBILITY.md).
 
-Not yet published to npm or a plugin index — installing from this repository works today.
+Available from GitHub now. The market index pins a Git commit, so no npm account is needed; npm publishing is deferred.
 
 ## Features
 
@@ -32,28 +32,30 @@ Not yet published to npm or a plugin index — installing from this repository w
 
 ## Install
 
-### From this repository
+### From GitHub
 
 ```sh
 git clone https://github.com/DjTaNg-404/dsh-gloss.git
 dsh plugin --profile <profile> add /absolute/path/to/dsh-gloss
 ```
 
-Or in the Web GUI: **Plugins → install → absolute local directory**, pointing at the cloned directory. Restart DSH once to prove the bundle persists.
-
-### From npm (after the first release)
+Or install the Git source directly:
 
 ```sh
-dsh plugin --profile <profile> add dsh-gloss
+dsh plugin --profile <profile> add "git+https://github.com/DjTaNg-404/dsh-gloss.git"
 ```
 
-### From a plugin index (after the index is hosted)
+Or in the Web GUI: **Plugins → install → absolute local directory**, pointing at the cloned directory. Restart DSH once to prove the bundle persists.
+
+### From a plugin index
 
 Enable **Experimental plugins → Custom plugin indexes** in the Plugins page, add this index URL, then install **Gloss** from Discover:
 
 ```
 https://djtang-404.github.io/dsh-gloss/market/index.json
 ```
+
+The index installs a pinned Git commit; it does not use npm. GitHub Pages must be enabled for this repository (Settings → Pages → `main` / root) for the URL to resolve.
 
 ## Usage
 
@@ -107,7 +109,7 @@ Node 24.9 or newer, the same floor DSH uses.
 ```sh
 npm test          # node:test logic + fork lifecycle regression
 npm run check     # node --check client.js + the market script
-npm run market:sync   # regenerate market/index.json after an npm publish
+npm run market:sync   # regenerate the Git-sourced market/index.json after a commit
 ```
 
 Layout:
